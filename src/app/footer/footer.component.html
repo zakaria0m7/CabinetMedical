@@ -1,0 +1,89 @@
+
+  
+  <footer class="page-footer font-small  pt-4">
+  
+    <!-- Footer Text -->
+    <div class="container-fluid text-center text-md-left">
+  
+      <!-- Grid row -->
+      <div class="row text-center py-3">
+  
+        <!-- Grid column -->
+        <div class="col-sm">
+  
+          <!-- Content -->
+          <p class="text-uppercase" style="font-size: small;">20015 Boulvard Oum Rabii 
+  
+            El Oulfa Casablanca</p>
+            <div class="vl"></div>
+        </div>
+        <!-- Grid column -->
+        
+  
+        <!-- Grid column -->
+        <div class="col-sm">
+  
+          <!-- Content -->
+          <h6 class="font-weight-bold ">Pour les appels urgents Appelez 08-08-24-24-23</h6>
+          <div class="v2"></div>
+        </div>
+  
+      
+        <!-- Grid column -->
+      <div class="col-sm">
+        <button class="button" (click)="open(content)">Prendre Rendez-Vous</button>
+      </div>  
+  
+      </div>
+      <!-- Grid row -->
+  
+    </div>
+    <!-- Footer Text -->
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2021 Made By | Madihi zakaria | Hafsa Eljamil
+   
+    </div>
+    <!-- Copyright -->
+  
+    
+  
+  </footer>
+  <!-- Footer -->
+    
+  <ng-template #content let-modal>
+    <div class="modal-header" style="background-color: 	#0a7945">
+      <h4 class="modal-title" id="modal-basic-title" style="color: rgb(252, 252, 252);">l'ajout d'un nouveau patient</h4>
+      <button type="button" class="close" style="color: rgb(252, 252, 252);" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form #patientForm="ngForm">
+        <div class="form-inline">
+          
+            <label>NOM : </label><input [(ngModel)]="patient.nom"   id="nom" name="nom" type="text" placeholder="Nom"  class="form-control" style="margin-bottom:5px;width: 300px; margin-left: 110px;" required #name="ngModel">
+          </div>
+          <div class="form-inline">
+            <label>PRENOM : </label><input [(ngModel)]="patient.prenom" id="prenom" name="prenom" type="text" placeholder="Prénom" class="form-control input-md" style="margin-bottom:5px;width: 300px;margin-left: 84px;" required >
+          </div>
+          <div class="form-inline">
+            <label>CIN : </label><input [(ngModel)]="patient.cin" id="cin" name="cin" type="text" size="8" placeholder="CIN" class="form-control input-md" style="margin-bottom:5px;width: 300px;margin-left: 123px;" required >
+          </div>
+            <div class="form-inline">
+            <label>Date de Naissance :</label><input [(ngModel)]="patient.dateNaissance" id="date" name="datenaiss" type="date" placeholder="Date de naissance" class="form-control input-md" style="margin-bottom:5px;width: 300px;margin-left: 18px;" required >
+          </div>
+            <div class="form-inline">
+            <label>Telephone : </label><input [(ngModel)]="patient.telephone" id="tel" name="tel" type="number" size="8" placeholder="Numéro de télephone" class="form-control input-md" style="margin-bottom:5px;width: 300px;margin-left: 76px;" required >
+          </div>
+            <div class="form-inline">
+              <label>ADRESSE : </label><input [(ngModel)]="patient.adresse" id="adresse" name="adresse" type="text" placeholder="Adresse" class="form-control input-md" style="margin-bottom:5px;width: 300px;margin-left: 84px;" required >
+            </div>
+           
+        
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button  type="submit" class="btn btn-success" (click)="onSubmit()"  >Confirmer</button>
+    </div>
+  </ng-template>

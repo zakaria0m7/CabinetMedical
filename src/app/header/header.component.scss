@@ -1,0 +1,89 @@
+
+header{
+    position: relative;
+    margin-left: -1%;
+    height: 160px;
+    width: 87.5%;
+  }
+  
+    .logo{
+        padding: 2%;
+        position: absolute;
+        left: 0;
+        height: 98%;
+        width: 28%;
+        background: linear-gradient(110deg, #6c89b4 60%, rgb(25, 30, 44) 60%);
+        text-align: center;
+        align-items: center;
+      
+        }
+  
+      header .logo img{
+    
+        position: absolute;
+        top: 15%;
+        left: 40%;
+        width: auto;
+        height: auto;
+      }
+      header .logo h2{
+        font-size: auto;
+        position: absolute;
+        left: 9%;
+        top: 55%;
+      }
+  
+  .adresse{
+    background-color: rgb(25, 30, 44);
+      padding-left: 5%;
+      padding-top: 2%;
+      position: absolute;
+      left:28%;
+      height: 63%;
+      width:88.5%;
+     
+      
+  }
+  
+  #fa1{
+    position: absolute;
+    left: 7%;
+    top: 30%;
+    z-index: 300;
+  }
+  
+  #ph1{
+    position: absolute;
+    left: 17%;
+    top: 45%;
+    z-index: 300;
+  }
+  
+  
+  
+  #fa2{
+      position: absolute;
+      left: 67%;
+      top: 30%;
+      z-index: 300;
+      
+  }
+  
+  #ph2{
+    position: absolute;
+      left: 77%;
+      top: 45%;
+      z-index: 300;
+  }
+  
+  mdb-navbar
+  {
+    position: absolute;
+    left:28%;
+    top: 63%;
+    width:88.5%;
+  }
+  
+   
+   
+  

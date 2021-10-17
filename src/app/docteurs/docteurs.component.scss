@@ -1,0 +1,42 @@
+
+
+.card-body{
+    text-align: start;
+    padding-left: 30px;
+}
+
+h4,h6{
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+mdb-icon{
+    margin-right: 5px;
+}
+
+#card2{
+    margin-left: -15px;
+}
+
+ul {
+    list-style: none;
+    margin-left: -10px;
+  }
+  ul li::before {
+    content: "";
+    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/fb-heart.gif);
+    background-size: contain;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    position: relative;
+    top: 0.1rem;
+    margin-right: 0.1rem;
+    margin-left: -5px;
+    margin-top: 2px;
+  }
+  
+  .card{
+    background-image: linear-gradient(to top, #eeaaac 0%, #ffffff 70%, #ffffff 100%);
+  }
+ 

@@ -1,0 +1,77 @@
+
+<header>
+    <div class="logo"> <img src="https://static.wixstatic.com/media/ca2a5a_9b1770f9656143f086128240e26f62ae.png/v1/fill/w_59,h_59,al_c,q_85/ca2a5a_9b1770f9656143f086128240e26f62ae.webp"/><h2>Cabinet Medicale</h2></div>
+    <div class="adresse"> <i  id="fa1"class="fa fa-home  fa-3x "></i> <p id="ph1" class="text-uppercase" style="font-size: xxx-small;">20015 Boulvard Oum Rabii El Oulfa Casablanca</p>
+        <i id="fa2" class="fa fa-phone-square fa-3x" aria-hidden="true"></i> <p id="ph2" class="text-uppercase" style="font-size: xxx-small;">08-08-24-24-23</p>
+    
+     </div> 
+    <!--Navbar-->
+    <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark unique-color" [containerInside]="false">
+    
+      <!-- Navbar brand -->
+      <mdb-navbar-brand><h4>Espace Patient</h4>  </mdb-navbar-brand>
+    
+     
+  
+    
+        <ul class="navbar-nav ml-auto nav-flex-icons">
+          
+          <li class="nav-item">
+            <a class="nav-link">
+              <div class="btn-group" mdbDropdown>
+                <mdb-icon fas icon="user" mdbDropdownToggle></mdb-icon>
+                <div class="dropdown-menu dropdown-menu-right dropdown-primary">
+                  <a class="dropdown-item" href="#"><i class="fas fa-sign-in-alt mr-2"></i>Se déconnecter</a>
+          
+                  <div class="divider dropdown-divider"></div>
+                  <a class="dropdown-item" href="#"><i class="fas fa-cogs mr-2"></i>Paramètre</a>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      
+      <!-- Collapsible content -->
+    
+    </mdb-navbar>
+      <!--/.Navbar-->
+    </header>
+    
+    
+    <ng-template #content let-modal>
+      <div class="modal-header" style="background-color: 	#0a7945">
+        <h4 class="modal-title" id="modal-basic-title" style="color: rgb(252, 252, 252);">Inscrivez-vous</h4>
+        <button type="button" class="close" style="color: rgb(252, 252, 252);" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #patientForm="ngForm">
+          <div class="form-inline">
+            
+              <label>NOM : </label><input [(ngModel)]="patient.nom"   id="nom" name="nom" type="text" placeholder="Nom"  class="form-control" style="margin-bottom:5px;width: 300px; margin-left: 110px;" required #name="ngModel">
+            </div>
+            <div class="form-inline">
+              <label>PRENOM : </label><input [(ngModel)]="patient.prenom" id="prenom" name="prenom" type="text" placeholder="Prénom" class="form-control input-md" style="margin-bottom:5px;width: 300px;margin-left: 84px;" required >
+            </div>
+            <div class="form-inline">
+              <label>CIN : </label><input [(ngModel)]="patient.cin" id="cin" name="cin" type="text" size="8" placeholder="CIN" class="form-control input-md" style="margin-bottom:5px;width: 300px;margin-left: 123px;" required >
+            </div>
+              <div class="form-inline">
+              <label>Date de Naissance :</label><input [(ngModel)]="patient.dateNaissance" id="date" name="datenaiss" type="date" placeholder="Date de naissance" class="form-control input-md" style="margin-bottom:5px;width: 300px;margin-left: 18px;" required >
+            </div>
+              <div class="form-inline">
+              <label>Telephone : </label><input [(ngModel)]="patient.telephone" id="tel" name="tel" type="number" size="8" placeholder="Numéro de télephone" class="form-control input-md" style="margin-bottom:5px;width: 300px;margin-left: 76px;" required >
+            </div>
+              <div class="form-inline">
+                <label>ADRESSE : </label><input [(ngModel)]="patient.adresse" id="adresse" name="adresse" type="text" placeholder="Adresse" class="form-control input-md" style="margin-bottom:5px;width: 300px;margin-left: 84px;" required >
+              </div>
+             
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button  type="submit" class="btn btn-success" (click)="onSubmit()"  >Confirmer</button>
+      </div>
+    </ng-template>
+        

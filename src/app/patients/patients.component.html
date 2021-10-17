@@ -1,0 +1,171 @@
+
+<div class="container-fluid p-5"  >
+    <div class="row mb-4"  >
+        <div class="col" style="display: flex;justify-content: center;">
+            
+                <button type="button" (click)="open(content)" class="btn btn-success btn-lg" style="height: 95%;margin-top: 1px;">Nouveau patient</button>
+                <input class="input1"  name="searchInput" [(ngModel)]="searchInput"  type="text" placeholder="chercher un patient" style="width: 30%;margin-right: 2px;"> 
+        </div>
+        
+    </div>                             
+<div class="row">
+    <div class="col">
+      <ng-template [ngIf]="searchInput!='madihi'" [ngIfElse]="loading">
+        <div>
+          <table class="table table-bordered" style="width:90%;margin-left: 5%;text-align: center;vertical-align: middle;background-color: rgb(214, 209, 200);">
+            <thead><th>Matricule</th><th>Nom</th><th>prenom</th><th>CIN</th><th>DateNaissance</th><th>Telephone</th><th>Adresse</th><th>Autre</th>  
+                  </thead>
+            <tbody id="tbody">
+              <tr *ngFor="let patient of patients">
+                  <td>{{ patient.id }}</td>
+                  <td>{{ patient.nom }}</td>
+                  <td>{{ patient.prenom }}</td>
+                  <td>{{ patient.cin }}</td>
+                  <td>{{ patient.dateNaissance }}</td>
+                  <td>0{{ patient.telephone }}</td>
+                  <td>{{ patient.adresse }}</td>
+                  <td style=" white-space: nowrap;
+                  overflow-x: auto;
+                  overflow-y: hidden;">
+                    <a style="display:inline-block;"  href="#" ><button class="button1 mr-1" style="color: rgb(0, 0, 0);border-radius: 15px;" ><strong> Voir plus details </strong></button></a>
+                    <button  (click)="open(content3)" class="button2 mr-1" style="color: rgb(0, 0, 0);border-radius: 15px;" ><i class="fas fa-user-edit"></i></button>
+                    <a  [routerLink]="['/patients']"  style="display:inline-block"  href="#" ><button (click)="clickMethod('name',patient)"  class="button3" style="color: rgb(0, 0, 0);border-radius: 15px;" ><i class="fas fa-user-times"></i></button></a>
+                  </td>
+                 
+              </tr>
+             
+            </tbody>
+            </table>
+        </div>
+       </ng-template>
+       
+       <ng-template #loading>
+        <div ><div >
+          <table class="table table-bordered" style="width:90%;margin-left: 5%;text-align: center;vertical-align: middle;background-color: rgb(214, 209, 200);">
+            <thead><th>Matricule</th><th>Nom</th><th>prenom</th><th>CIN</th><th>DateNaissance</th><th>Telephone</th><th>Adresse</th><th>Autre</th>  
+                  </thead>
+            <tbody id="tbody">
+              <tr >
+                  <td>1</td>
+                  <td>madihi</td>
+                  <td>zakaria</td>
+                  <td>bk611321</td>
+                  <td>1994-07-20</td>
+                  <td>0884227382</td>
+                  <td>oulfa</td>
+                  <td style=" white-space: nowrap;
+                  overflow-x: auto;
+                  overflow-y: hidden;">
+                    <a style="display:inline-block;"  href="#" ><button class="button1 mr-1" style="color: rgb(0, 0, 0);border-radius: 15px;" ><strong> Voir plus details </strong></button></a>
+                    <button  (click)="open(content3)" class="button2 mr-1" style="color: rgb(0, 0, 0);border-radius: 15px;" ><i class="fas fa-user-edit"></i></button>
+                    <a  [routerLink]="['/patients']"  style="display:inline-block"  href="#" ><button (click)="clickMethod('name',patient)"  class="button3" style="color: rgb(0, 0, 0);border-radius: 15px;" ><i class="fas fa-user-times"></i></button></a>
+                  </td>
+                 
+              </tr>
+             
+            </tbody>
+            </table>
+        </div></div>
+       </ng-template>
+
+</div>
+</div>
+<div class="row">
+    <div class="col" style="display: flex;justify-content: center;">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination pg-blue">
+          <li class="page-item disabled">
+            <span class="page-link">Previous</span>
+          </li>
+          <li class="page-item active"><a class="page-link" mdbWavesEffect>1</a></li>
+          <li class="page-item">
+            <span class="page-link" mdbWavesEffect>
+              2
+              <span class="sr-only">(current)</span>
+            </span>
+          </li>
+          <li class="page-item"><a class="page-link" mdbWavesEffect>3</a></li>
+          <li class="page-item">
+            <a class="page-link" mdbWavesEffect>Next</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+</div>
+</div>
+
+
+<ng-template #content let-modal>
+  <div class="modal-header" style="background-color: 	#0a7945">
+    <h4 class="modal-title" id="modal-basic-title" style="color: rgb(252, 252, 252);">l'ajout d'un nouveau patient</h4>
+    <button type="button" class="close" style="color: rgb(252, 252, 252);" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #patientForm="ngForm">
+      <div class="form-inline">
+        
+          <label>NOM : </label><input [(ngModel)]="patient.nom"   id="nom" name="nom" type="text" placeholder="Nom"  class="form-control" style="margin-bottom:5px;width: 300px; margin-left: 110px;" required #name="ngModel">
+        </div>
+        <div class="form-inline">
+          <label>PRENOM : </label><input [(ngModel)]="patient.prenom" id="prenom" name="prenom" type="text" placeholder="Prénom" class="form-control input-md" style="margin-bottom:5px;width: 300px;margin-left: 84px;" required >
+        </div>
+        <div class="form-inline">
+          <label>CIN : </label><input [(ngModel)]="patient.cin" id="cin" name="cin" type="text" size="8" placeholder="CIN" class="form-control input-md" style="margin-bottom:5px;width: 300px;margin-left: 123px;" required >
+        </div>
+          <div class="form-inline">
+          <label>Date de Naissance :</label><input [(ngModel)]="patient.dateNaissance" id="date" name="datenaiss" type="date" placeholder="Date de naissance" class="form-control input-md" style="margin-bottom:5px;width: 300px;margin-left: 18px;" required >
+        </div>
+          <div class="form-inline">
+          <label>Telephone : </label><input [(ngModel)]="patient.telephone" id="tel" name="tel" type="number" size="8" placeholder="Numéro de télephone" class="form-control input-md" style="margin-bottom:5px;width: 300px;margin-left: 76px;" required >
+        </div>
+          <div class="form-inline">
+            <label>ADRESSE : </label><input [(ngModel)]="patient.adresse" id="adresse" name="adresse" type="text" placeholder="Adresse" class="form-control input-md" style="margin-bottom:5px;width: 300px;margin-left: 84px;" required >
+          </div>
+         
+      
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button  type="submit" class="btn btn-success" (click)="onSubmit()" (click)="modal.close('Save click')" >Confirmer</button>
+  </div>
+</ng-template>
+
+<ng-template #content3 let-modal>
+  <div class="modal-header" style="background-color: 	#0a7945">
+    <h4 class="modal-title" id="modal-basic-title" style="color: rgb(252, 252, 252);">Modifier le patient selectionné</h4>
+    <button type="button" class="close" style="color: rgb(252, 252, 252);" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #patientForm="ngForm">
+      <div class="form-inline">
+        
+          <label>NOM : </label><input [(ngModel)]="patient.nom"   id="nom" name="nom" type="text" placeholder="Nom" class="form-control" style="margin-bottom:5px;width: 300px; margin-left: 110px;" required #name="ngModel">
+        </div>
+        <div class="form-inline">
+          <label>PRENOM : </label><input [(ngModel)]="patient.prenom" id="prenom" name="prenom" type="text" placeholder="Prénom" class="form-control input-md" style="margin-bottom:5px;width: 300px;margin-left: 84px;" required >
+        </div>
+        <div class="form-inline">
+          <label>CIN : </label><input [(ngModel)]="patient.cin" id="cin" name="cin" type="text" size="8" placeholder="CIN" class="form-control input-md" style="margin-bottom:5px;width: 300px;margin-left: 123px;" required >
+        </div>
+          <div class="form-inline">
+          <label>Date de Naissance :</label><input [(ngModel)]="patient.dateNaissance" id="date" name="datenaiss" type="date" placeholder="Date de naissance" class="form-control input-md" style="margin-bottom:5px;width: 300px;margin-left: 18px;" required >
+        </div>
+          <div class="form-inline">
+          <label>Telephone : </label><input [(ngModel)]="patient.telephone" id="tel" name="tel" type="number" size="8" placeholder="Numéro de télephone" class="form-control input-md" style="margin-bottom:5px;width: 300px;margin-left: 76px;" required >
+        </div>
+          <div class="form-inline">
+            <label>ADRESSE : </label><input [(ngModel)]="patient.adresse" id="adresse" name="adresse" type="text" placeholder="Adresse" class="form-control input-md" style="margin-bottom:5px;width: 300px;margin-left: 84px;" required >
+          </div>
+         
+      
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button  type="submit" class="btn btn-success" (click)="onSubmit()" (click)="modal.close('Save click')" >Confirmer</button>
+  </div>
+</ng-template>
+

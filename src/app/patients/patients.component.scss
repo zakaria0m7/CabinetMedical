@@ -1,0 +1,20 @@
+
+
+.input1{
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('https://www.w3schools.com/css/searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+  }
+  .button1{background-color: #95c3f8;border: none;}
+  .button2{background-color: #04922f;border: none;}
+  .button3{background-color: #e40303;border: none;}
+  .button1:hover {background-color: #c0daf8}
+  .button2:hover {background-color: #03ac36}
+  .button3:hover {background-color: #ff0404}
